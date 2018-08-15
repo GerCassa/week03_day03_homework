@@ -22,9 +22,8 @@ class Artist
 
   def Artist.all()
     sql = "SELECT * FROM artists"
-    artists_hash = SqlRunner.run(sql)
-    artists = artists_hash.map {|artist| Artist.new(artist)}
-    return artists
+    artists = SqlRunner.run(sql)
+    return artists.map { |artist| Artist.new(artist) }
   end
 
 

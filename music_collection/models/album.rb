@@ -22,7 +22,11 @@ class Album
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
-
+  def Album.all()
+    sql = "SELECT * FROM albums"
+    albums = SqlRunner.run(sql)
+    return albums.map { |album| Album.new(album) }
+  end
 
 
 end
